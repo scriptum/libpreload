@@ -5,10 +5,10 @@ Copyright (c) 2014 Pavel Roschin <rpg89@post.ru>
 Compile:
 gcc -shared -fPIC -ldl example.c -o example.so
 
-Use:
-LD_PRELOAD=./example.so cat example.c
+Try:
+make check
 Hello from open!
-...
+
 *******************************************************************************/
 
 #include "libpreload.h"

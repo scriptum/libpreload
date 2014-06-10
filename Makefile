@@ -9,10 +9,13 @@ LDFLAGS += -ldl -shared
 all: $(LIB)
 
 $(LIB): $(NAME).c libpreload.h
-	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
+
+test: test.c
+	$(CC) $^ -o $@
+
+check: test $(LIB)
+	LD_PRELOAD=./$(LIB) ./$<
 
 clean:
-	-rm -f *.so
-
-test:
-	LD_PRELOAD=./$(LIB) 
+	-rm -f *.so test
