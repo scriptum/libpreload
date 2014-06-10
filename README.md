@@ -11,7 +11,7 @@ Inside your implementation use `first_run` variable to detect first call.
 
 Example (trace open system call and call original function):
 
-```
+```C++
 #include "libpreload.h"
 #include <stdio.h>
 
