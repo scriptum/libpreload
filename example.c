@@ -16,7 +16,10 @@ Hello from open!
 
 HIDE_START(int, open, (const char *pathname, int flags))
 {
-	puts("Hello from open!");
+	if(first_run)
+		puts("Hello from open!");
+	else
+		puts("open is called");
 	return open_orig(pathname, flags);
 }
 HIDE_END

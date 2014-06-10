@@ -36,9 +36,12 @@ static int funcname##_load() {                                                 \
     return 0;                                                                  \
 }                                                                              \
 returnspec funcname args {                                                     \
-    {                                                                          \
-        if (!funcname##_orig && funcname##_load() != 0)                        \
+    static int first_run = 1;                                                  \
+    if(!funcname##_orig) {                                                     \
+        if(funcname##_load() != 0)                                             \
             exit(-1);                                                          \
     }                                                                          \
+    else                                                                       \
+        first_run = 0;                                                         \
 
 #define HIDE_END }
