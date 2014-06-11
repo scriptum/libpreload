@@ -32,4 +32,4 @@ To build that just run:
 
 And use:
 
-`LD_PRELOAD=./libexample.so cat example.c | head -2`
+`LD_PRELOAD=./libexample.so cat example.c`
