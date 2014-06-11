@@ -4,7 +4,7 @@ libpreload
 Simple header that helps for LD_PRELOAD tricks. It provides two macros: 
 `HIDE_START` and `HIDE_END`. Use HIDE_START to hide library function and put
 `HIDE_END` at the end of your own implementation. Just below macro `HIDE_START` 
-defined use `<FUNC>_orig` function to call original library implementation. 
+use `<FUNC>_orig` function to call original library implementation. 
 Inside your implementation use `first_run` variable to detect first call.
 
 `USE_START(return_value, function_name, arguments)`
