@@ -11,7 +11,7 @@ Inside your implementation use `first_run` variable to detect first call.
 
 Example (trace open system call and call original function):
 
-```C++
+```cpp
 #include "libpreload.h"
 #include <stdio.h>
 
@@ -25,3 +25,11 @@ HIDE_START(int, open, (const char *pathname, int flags))
 }
 HIDE_END
 ```
+
+To build that just run:
+
+`gcc -shared -fPIC -O2 example.c -ldl -o libexample.so`
+
+And use:
+
+`LD_PRELOAD=./libexample.so cat example.c | head -2`
